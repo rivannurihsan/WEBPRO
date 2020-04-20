@@ -181,7 +181,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Katalog
+                        <a class="nav-link" href="<?= base_url();?>Catalog">Katalog
                             <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
