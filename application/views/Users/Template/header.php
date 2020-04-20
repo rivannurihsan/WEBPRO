@@ -176,7 +176,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href=<?= base_url(); ?>>Navbar</a>
+            <a class="navbar-brand" href=<?= base_url(); ?>><img src="<?php echo base_url(); ?>assets/logo.png" class="navbar-brand" height="40px" width="100px" href=<?= base_url(); ?>></a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

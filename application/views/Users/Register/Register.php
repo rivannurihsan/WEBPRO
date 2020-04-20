@@ -151,6 +151,7 @@
                     <h1>Register</h1>
                     
                     <input class="input1" type="email" placeholder="Email"/>
+                    <input class="input1" type="username" placeholder="Username"/>
                     <input class="input1" type="password" placeholder="Password"/>
                     <input class="input1" type="date" id="birthday" name="birthday">
                     <input class="input1" type="alamat" placeholder="Alamat"/>

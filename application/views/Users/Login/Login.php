@@ -108,7 +108,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-leftß">
-                        <form action="/action_page.php" method="post">
+                        <form action="<?= base_url();?>welcome/Login/" method="post">
                             <div class="Judul">
                                 Sign In
                             </div>
