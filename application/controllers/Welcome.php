@@ -21,7 +21,7 @@ class Welcome extends CI_Controller
 	 */
 	function __construct(){
 		parent::__construct();
-		$this->load->model("login");
+		$this->load->model("loginmodel");
 	}
 	public function index()
 	{
@@ -30,16 +30,21 @@ class Welcome extends CI_Controller
 		$this->load->view('Users/Home/Home');
 	}
 	public function Login(){
-		$this->load->view('Users/Template/header');
-		$this->load->view('Users/Login/Login');
+		// $this->load->view('Users/Login/Login');
+		$message="Invalid username or password";
 		if ($this->input->method() == 'post') {
 			$data = ['username' => $this->input->post('uname'), 'password' => $this->input->post('psw')];
-			if ($this->login->loginuser($data)) {
+			if ($this->loginmodel->loginuser($data)) {
 				$this->session->set_userdata('username', $data['username']);
                 redirect('/');
             } else {
-                $this->load->view('Users/Login/Login', ['error_message' => 'Invalid username or password']);
+				$this->load->view('Users/Template/header');
+		
+                $this->load->view('Users/Login/Login', ['error_msg' => 'Invalid username or password']);
             }
+		}else{
+			$this->load->view('Users/Template/header');
+			$this->load->view('Users/Login/Login');
 		}
 		
 	}

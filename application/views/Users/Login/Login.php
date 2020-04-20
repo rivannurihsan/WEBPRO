@@ -32,7 +32,7 @@
                 position: relative;
                 width: 100%;
                 height: 100%;
-                background:  url('<?php echo base_url();?>assets/homebg.jpg');
+                background: url("<?php echo base_url();?>assets/homebg.jpg");
                 background-size: 100% 100%;
                 bottom: 0;
                 margin-bottom: 0;
@@ -108,11 +108,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-leftß">
-                        <form action="<?= base_url();?>welcome/Login/" method="post">
+                        <form action="<?= base_url();?>Welcome/Login/" method="post">
                             <div class="Judul">
                                 Sign In
                             </div>
-
+                            <?php if(isset($error_msg)) { ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?= $error_msg ?>
+                                </div>
+                            <?php } ?>
                             <label for="uname">
                                 <b>Username</b>
                             </label>

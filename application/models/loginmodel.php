@@ -1,5 +1,5 @@
 <?php 
-class login extends CI_Model{
+class loginmodel extends CI_Model{
 	
 	public function check_username($username){
 		//check if username (from param) already exist in db or not, return true / false
