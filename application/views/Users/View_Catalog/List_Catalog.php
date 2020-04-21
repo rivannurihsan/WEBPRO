@@ -14,7 +14,7 @@
             }
 
             #section2 .col-md-2 {
-                margin-top: 5%;
+                margin-top: 2%;
             }
 
             #tittle-section2 {
@@ -26,7 +26,10 @@
                 color: #000000;
                 margin-left: 2%;
             }
-
+            #kategori input{
+                margin-left: 4%;
+                font-size: 20px;
+            }
             h6 {
                 padding-top: 8%;
                 margin-left: 7%;
@@ -36,6 +39,7 @@
                 border: 1px solid #E7EAEC;
                 box-sizing: border-box;
                 border-radius: 5px;
+                margin-left: 7%;
             }
 
             .card input {
@@ -170,10 +174,12 @@
 
             </div>
 
+
+
             <div class="row">
                 <div class="col-md-2 col-4" id="form">
                     <h1 id="tittle-section2">Search for more details</h1>
-                    <div class="card" ">
+                    <div class="card" >
                         <h6>Price Range</h6>
                         <form action="">
                             <input
@@ -191,12 +197,12 @@
                     </div>
                     <div class="card" id="PriceRange">
                         <h6>Categoies</h6>
-                        <form action="">
+                        <form action="" id="kategori">
                             <input
                                 id="inlineFormInputGroup"
                                 type="checkbox"
                                 value="Promo"
-                                placeholder="asdasdasdasdasdsa">Promo</input><br>
+                                placeholder="asdasdasdasdasdsa" id="kategori">Promo</input><br>
                             <input
                                 id="inlineFormInputGroup"
                                 type="checkbox"
@@ -209,6 +215,22 @@
                                 value="Vitamin"
                                 placeholder="asdasdasdasdasdsa">Vitamin
                             </input>
+                            <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div class="card" >
+                        <h6>Your Cart</h6>
+                        <form action="">
+                            <input
+                                id="inlineFormInputGroup"
+                                type="text"
+                                class="form-control"
+                                placeholder="Minimum price">
+                            <input
+                                id="inlineFormInputGroup"
+                                type="text"
+                                class="form-control"
+                                placeholder="Maximum price">
                             <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
                         </form>
                     </div>
