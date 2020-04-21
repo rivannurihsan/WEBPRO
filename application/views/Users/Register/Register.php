@@ -157,8 +157,8 @@
                     <input class="input1" type="alamat" placeholder="Alamat" name="alamat"/>
                     <select class="input1" name="Gender">
                         <option value="volvo" selected>Gender</option>
-                        <option value="saab">Pria</option>
-                        <option value="fiat">Wanita</option>
+                        <option value="Pria">Pria</option>
+                        <option value="Wanita">Wanita</option>
                     </select>
                     <button class="button1">Register</button>
                 </form>
