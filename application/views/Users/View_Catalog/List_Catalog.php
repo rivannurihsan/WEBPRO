@@ -31,6 +31,12 @@
                 padding-top: 8%;
                 margin-left: 7%;
             }
+            #PriceRange input {
+                width: 5%;
+                border: 1px solid #E7EAEC;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
 
             .card input {
                 width: 90%;
@@ -143,10 +149,10 @@
                     <!-- The slideshow -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?= base_url('assets/logo.png') ?>" alt="Los Angeles">
+                            <img src="<?= base_url('assets/covid-19.jpg') ?>" alt="Los Angeles">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= base_url('assets/logo.png') ?>" alt="Chicago">
+                            <img src="<?= base_url('assets/obat2.png') ?>" alt="Chicago">
                         </div>
                         <div class="carousel-item">
                             <img src="<?= base_url('assets/logo.png') ?>" alt="New York">
@@ -165,9 +171,9 @@
             </div>
 
             <div class="row">
-                <div class="col-md-2" id="form">
+                <div class="col-md-2 col-4" id="form">
                     <h1 id="tittle-section2">Search for more details</h1>
-                    <div class="card" id="PriceRange">
+                    <div class="card" ">
                         <h6>Price Range</h6>
                         <form action="">
                             <input
@@ -184,18 +190,25 @@
                         </form>
                     </div>
                     <div class="card" id="PriceRange">
-                        <h6>Price Range</h6>
+                        <h6>Categoies</h6>
                         <form action="">
                             <input
                                 id="inlineFormInputGroup"
-                                type="text"
-                                class="form-control"
-                                placeholder="Minimum price">
+                                type="checkbox"
+                                value="Promo"
+                                placeholder="asdasdasdasdasdsa">Promo</input><br>
                             <input
                                 id="inlineFormInputGroup"
-                                type="text"
-                                class="form-control"
-                                placeholder="Maximum price">
+                                type="checkbox"
+                                value="Obat"
+                                placeholder="asdasdasdasdasdsa">Obat
+                            </input><br>
+                            <input
+                                id="inlineFormInputGroup"
+                                type="checkbox"
+                                value="Vitamin"
+                                placeholder="asdasdasdasdasdsa">Vitamin
+                            </input>
                             <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
                         </form>
                     </div>
