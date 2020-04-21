@@ -1,3 +1,6 @@
+<?php 
+    $this->load->view('Users/Template/header');
+?>
 <html>
     <head>
         <link

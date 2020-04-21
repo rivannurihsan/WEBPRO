@@ -1,13 +1,20 @@
+<?php 
+    $this->load->view('Users/Template/header');
+?>
 <html>
     <head>
         <style>
+            .carousel-inner img {
+                width: 100%;
+                height: 50%;
+            }
             #section2 {
                 padding-top: 5%;
                 width: 98%;
             }
 
             #section2 .col-md-2 {
-                margin-top: 1%;
+                margin-top: 5%;
             }
 
             #tittle-section2 {
@@ -123,6 +130,40 @@
     <body>
         <div class="container-fluid" id="section1"></div>
         <div class="container-fluid" id="section2">
+            <div class="mt-3">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="<?= base_url('assets/logo.png') ?>" alt="Los Angeles">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= base_url('assets/logo.png') ?>" alt="Chicago">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= base_url('assets/logo.png') ?>" alt="New York">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+
+            </div>
+
             <div class="row">
                 <div class="col-md-2" id="form">
                     <h1 id="tittle-section2">Search for more details</h1>
@@ -241,5 +282,30 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                // Activate Carousel
+                $("#myCarousel").carousel();
+
+                // Enable Carousel Indicators
+                $(".item1").click(function () {
+                    $("#myCarousel").carousel(0);
+                });
+                $(".item2").click(function () {
+                    $("#myCarousel").carousel(1);
+                });
+                $(".item3").click(function () {
+                    $("#myCarousel").carousel(2);
+                });
+
+                // Enable Carousel Controls
+                $(".carousel-control-prev").click(function () {
+                    $("#myCarousel").carousel("prev");
+                });
+                $(".carousel-control-next").click(function () {
+                    $("#myCarousel").carousel("next");
+                });
+            });
+        </script>
     </body>
 </html>
