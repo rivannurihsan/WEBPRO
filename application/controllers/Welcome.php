@@ -49,10 +49,25 @@ class Welcome extends CI_Controller
 		
 	}
 	public function Registrasi()
-	{
-		$this->load->view('Users/Template/header');
-		$this->load->view('Users/Register/Register');
+	{	
+
+		$timestamp = strtotime($this->input->post('birthday'));
+
+// Creating new date format from that timestamp
+		$ttl = date("y-m-d", $timestamp);
+		if ($this->input->method() == 'post') {
+			$data = ['email' => $this->input->post('email'), 'username' => $this->input->post('username'), 'password' => $this->input->post('password'), 'TTL' => $ttl, 'alamat' => $this->input->post('alamat'), 'gender' => $this->input->post('Gender'), 'status' => 0];
+			if ($this->loginmodel->insert_new_profle($data)) {
+				$this->session->set_userdata('username', $data['username']);
+                redirect('/');
+            } else {
+				$this->load->view('Users/Template/header');
+                $this->load->view('Users/Login/Login', ['error_msg' => 'Invalid username or password']);
+            }
+		}else{
+			$this->load->view('Users/Template/header');
+			$this->load->view('Users/Register/Register');
+		}
 	}
 	
 }
-

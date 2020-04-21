@@ -147,14 +147,14 @@
     <body>
         <div class="container1" id="container">
             <div class="form-container log-in-container overlay-container overlay-right">
-                <form action="#" class="form1">
+                <form action="<?= base_url();?>Welcome/Registrasi/" class="form1" method="post">
                     <h1>Register</h1>
                     
-                    <input class="input1" type="email" placeholder="Email"/>
-                    <input class="input1" type="username" placeholder="Username"/>
-                    <input class="input1" type="password" placeholder="Password"/>
+                    <input class="input1" type="email" placeholder="Email" name="email"/>
+                    <input class="input1" type="username" placeholder="Username" name="username"/>
+                    <input class="input1" type="password" placeholder="Password" name="password"/>
                     <input class="input1" type="date" id="birthday" name="birthday">
-                    <input class="input1" type="alamat" placeholder="Alamat"/>
+                    <input class="input1" type="alamat" placeholder="Alamat" name="alamat"/>
                     <select class="input1" name="Gender">
                         <option value="volvo" selected>Gender</option>
                         <option value="saab">Pria</option>
