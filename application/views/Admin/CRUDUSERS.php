@@ -270,7 +270,7 @@ $this->load->view('Users/Template/header');
                                             <div class="topic-title">Username</div>
                                             <input type="text" class="form-control" name="username" required="required"><br>
                                             <div class="topic-title">Password</div>
-                                            <input type="text" class="form-control" name="password" required="required"><br>
+                                            <input type="password" class="form-control" name="password" required="required"><br>
                                             <div class="topic-title">Tanggal Lahir</div>
                                             <input type="date" class="form-control" name="TTL" required="required"><br>
                                             <div class="topic-title">Alamat</div>
@@ -314,18 +314,19 @@ $this->load->view('Users/Template/header');
 
                                         <div class="col-md-7" id="inputan">
                                             <div class="topic-title">Email</div>
-                                            <input type="text" name="email" class="form-control" required="required">
+                                            <input type="text" name="email" class="form-control" value="<?php echo $d->email ?>" required="required">
                                             <div class="topic-title">Username</div>
-                                            <input type="text" class="form-control" name="username" required="required"><br>
+                                            <input type="text" class="form-control" name="username" value="<?php echo $d->username ?>" required="required"><br>
                                             <div class="topic-title">Password</div>
-                                            <input type="text" class="form-control" name="password" required="required"><br>
+                                            <input type="text" class="form-control" name="password" value="<?php echo $d->password ?>" required="required"><br>
                                             <div class="topic-title">Tanggal Lahir</div>
-                                            <input type="date" class="form-control" name="TTL" required="required"><br>
+                                            <input type="date" class="form-control" name="TTL" required="required" value="<?php echo $d->TTL ?>"><br>
                                             <div class="topic-title">Alamat</div>
-                                            <input type="text" class="form-control" name="alamat" required="required"><br>
+                                            <input type="text" class="form-control" name="alamat" required="required" value="<?php echo $d->alamat ?>"><br>
                                             <div class="topic-title">Gender</div>
-                                            <select class="form-control" name="Gender">
-                                                <option value="volvo" selected="selected">Gender</option>
+                                            <select class="form-control" name="Gender" value="<?php echo $d->email ?>">
+                                                <option value="volvo" >Gender</option>
+                                                <option value="<?php echo '1'; ?>" selected><?php echo $d->gender ?></option>
                                                 <option value="Pria">Pria</option>
                                                 <option value="Wanita">Wanita</option>
                                             </select>
