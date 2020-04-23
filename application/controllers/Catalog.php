@@ -21,13 +21,14 @@ class Catalog extends CI_Controller
 	 */
 	function __construct(){
 		parent::__construct();
-		$this->load->model("loginmodel");
+		$this->load->model("Obat");
 	}
 	public function index()
 	{
 		// $this->load->view('welcome_message');
 		// $this->load->view('Users/Template/header');
-		$this->load->view('Users/View_Catalog/List_Catalog');
+		$data_obat = $this->Obat->GetObat();
+		$this->load->view('Users/View_Catalog/List_Catalog',['dataobat'=>$data_obat]);
 	}
 }
 

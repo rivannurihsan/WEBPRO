@@ -26,7 +26,7 @@
                 color: #000000;
                 margin-left: 2%;
             }
-            #kategori input{
+            #kategori input {
                 margin-left: 4%;
                 font-size: 20px;
             }
@@ -88,7 +88,7 @@
 
             #price {
                 width: 80%;
-                margin-bottom: 5%;
+                margin-bottom: 2%;
                 margin-left: 5%;
 
             }
@@ -105,13 +105,14 @@
                 font-style: normal;
                 font-weight: normal;
                 font-size: 24px;
-                line-height: 33px;
+                line-height: 10px;
                 letter-spacing: 0.02em;
                 color: #000000;
             }
 
             .card {
                 border-radius: 10px;
+                height: 230px;
             }
 
             #col-section-3 {
@@ -134,6 +135,12 @@
 
             .img-fluid {
                 border-radius: 10px 10px 0 0;
+            }
+            .display {
+                border: #000000;
+                border-style: solid;
+                margin-bottom: 5%;
+                margin-top: 0%;
             }
         </style>
     </head>
@@ -174,12 +181,10 @@
 
             </div>
 
-
-
             <div class="row">
                 <div class="col-md-2 col-4" id="form">
                     <h1 id="tittle-section2">Search for more details</h1>
-                    <div class="card" >
+                    <div class="card">
                         <h6>Price Range</h6>
                         <form action="">
                             <input
@@ -199,10 +204,10 @@
                         <h6>Categoies</h6>
                         <form action="" id="kategori">
                             <input
-                                id="inlineFormInputGroup"
+                                id="kategori"
                                 type="checkbox"
                                 value="Promo"
-                                placeholder="asdasdasdasdasdsa" id="kategori">Promo</input><br>
+                                placeholder="asdasdasdasdasdsa">Promo</input><br>
                             <input
                                 id="inlineFormInputGroup"
                                 type="checkbox"
@@ -218,7 +223,7 @@
                             <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
                         </form>
                     </div>
-                    <div class="card" >
+                    <div class="card">
                         <h6>Your Cart</h6>
                         <form action="">
                             <input
@@ -235,86 +240,36 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="card">
-                        <img src="<?= base_url('assets/logo.png') ?>" alt="" class="img-fluid">
-                        <div class="card-block">
-                            <div class="card-title">
-                                <h5>
-                                    <a id="label-section-3" href="<?= base_url('') ?>">OBAT</a>
-                                </h5>
-                            </div>
-                            <div class="card-text">
-                                <div class="harga">Rp</div>
-                                <div class="rating">rating</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">
-                        <img src="<?= base_url('assets/logo.png') ?>" alt="" class="img-fluid">
-                        <div class="card-block">
-                            <div class="card-title">
-                                <h5>
-                                    <a id="label-section-3" href="<?= base_url('') ?>">OBAT</a>
-                                </h5>
-                            </div>
-                            <div class="card-text">
-                                <div class="harga">Rp</div>
-                                <div class="rating">rating</div>
+                <div class="container display">
+                    <div class="row">
+                        <?php foreach ($dataobat as $d ) {?>
+                        <div class="col-md-2">
+                            <div class="card">
+                                <img
+                                    src="<?= base_url("assets/") . $d->Pict ?>"
+                                    alt=""
+                                    class="img-fluid"
+                                    height="80px"
+                                    width="90px">
+                                <div class="card-block">
+                                    <div class="card-title">
+                                        <h5>
+                                            <a id="label-section-3" href="<?= base_url('') ?>"><?php echo($d->Nama_Obat) ?></a>
+                                        </h5>
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="harga">Rp.<?php echo $d->Harga ?></div>
+                                        <div class="rating"><?php echo nl2br($d->Description) ?></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <?php } ?>
                     </div>
+
                 </div>
-                <div class="col-md-2">
-                    <div class="card">
-                        <img src="<?= base_url('assets/logo.png') ?>" alt="" class="img-fluid">
-                        <div class="card-block">
-                            <div class="card-title">
-                                <h5>
-                                    <a id="label-section-3" href="<?= base_url('') ?>">OBAT</a>
-                                </h5>
-                            </div>
-                            <div class="card-text">
-                                <div class="harga">Rp</div>
-                                <div class="rating">rating</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">
-                        <img src="<?= base_url('assets/logo.png') ?>" alt="" class="img-fluid">
-                        <div class="card-block">
-                            <div class="card-title">
-                                <h5>
-                                    <a id="label-section-3" href="<?= base_url('') ?>">OBAT</a>
-                                </h5>
-                            </div>
-                            <div class="card-text">
-                                <div class="harga">Rp</div>
-                                <div class="rating">rating</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">
-                        <img src="<?= base_url('assets/logo.png') ?>" alt="" class="img-fluid">
-                        <div class="card-block">
-                            <div class="card-title">
-                                <h5>
-                                    <a id="label-section-3" href="<?= base_url('') ?>">OBAT</a>
-                                </h5>
-                            </div>
-                            <div class="card-text">
-                                <div class="harga">Rp</div>
-                                <div class="rating">rating</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
         <script>
