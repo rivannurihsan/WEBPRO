@@ -265,7 +265,7 @@ $this->load->view('Users/Template/header');
                                         <div class="col-md-1"></div>
 
                                         <div class="col-md-7" id="inputan">
-                                            <div class="topic-title" >Email</div>
+                                            <div class="topic-title">Email</div>
                                             <input type="text" name="email" class="form-control" required="required">
                                             <div class="topic-title">Username</div>
                                             <input type="text" class="form-control" name="username" required="required"><br>
@@ -307,70 +307,46 @@ $this->load->view('Users/Template/header');
                                     <h5 id="tittle">Update Product</h5>
                                     <form
                                         class="row"
-                                        action="<?= base_url();?>Admin/editobat/"
+                                        action="<?= base_url();?>Admin/RegistrasiAdmin/"
                                         method="POST"
                                         enctype="multipart/form-data">
                                         <div class="col-md-1"></div>
-                                        <div class="col-md-4">
-                                            <img
-                                                id="addImage"
-                                                src="<?= base_url('assets/obat1.png') ?>"
-                                                class="roundedcircle d-block"/>
-                                        </div>
-                                        <div class="col-md-7" id="inputan">
-                                            <div class="topic-title">Product Name</div>
-                                            <input
-                                                type="hidden"
-                                                name="Obatid"
-                                                class="form-control"
-                                                placeholder="Nama"
-                                                value="<?php echo $d->Obatid ?>"
-                                                required="required">
-                                            <input
-                                                type="text"
-                                                name="Nama_Obat"
-                                                class="form-control"
-                                                placeholder="Description"
-                                                value="<?php echo $d->Nama_Obat?>">
-                                            <div class="topic-title">Price</div>
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                name="Harga"
-                                                value="<?php echo $d->Harga ?>"><br>
-                                            <input
-                                                type="file"
-                                                name="uploadImage"
-                                                class="form-control"
-                                                value="<?=$d->Pict ?>"><?= $d->Pict ?></input>
-                                        </div>
 
-                                        <div class="topic-title desc">Description</div>
-                                        <textarea
-                                            class="form-control"
-                                            name="Description"
-                                            id=""
-                                            cols="30"
-                                            rows="5"
-                                            value="<?php echo nl2br($d->Description) ?>"
-                                            placeholder="<?php echo nl2br($d->Description) ?>"><?php echo nl2br($d->Description) ?></textarea>
+                                        <div class="col-md-7" id="inputan">
+                                            <div class="topic-title">Email</div>
+                                            <input type="text" name="email" class="form-control" required="required">
+                                            <div class="topic-title">Username</div>
+                                            <input type="text" class="form-control" name="username" required="required"><br>
+                                            <div class="topic-title">Password</div>
+                                            <input type="text" class="form-control" name="password" required="required"><br>
+                                            <div class="topic-title">Tanggal Lahir</div>
+                                            <input type="date" class="form-control" name="TTL" required="required"><br>
+                                            <div class="topic-title">Alamat</div>
+                                            <input type="text" class="form-control" name="alamat" required="required"><br>
+                                            <div class="topic-title">Gender</div>
+                                            <select class="form-control" name="Gender">
+                                                <option value="volvo" selected="selected">Gender</option>
+                                                <option value="Pria">Pria</option>
+                                                <option value="Wanita">Wanita</option>
+                                            </select>
+                                        </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary" value="upload">Update</button>
+                                            <button type="submit" class="btn btn-primary topmar" value="upload">Add New Product</button>
                                             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
                                         </div>&nbsp
 
                                     </form>
-                                </div>
                             </div>
                         </div>
-                        <?php } ?>
                     </div>
+                    <?php } ?>
                 </div>
-
             </div>
 
         </div>
 
-    </body>
+    </div>
+
+</body>
 
 </html>
