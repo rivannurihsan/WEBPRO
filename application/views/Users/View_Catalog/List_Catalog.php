@@ -248,8 +248,8 @@
                                 <img
                                     src="<?= base_url("assets/") . $d->Pict ?>"
                                     alt=""
-                                    class="img-fluid"
-                                    height="80px"
+                                    class="mx-auto d-block"
+                                    height="100px"
                                     width="90px">
                                 <div class="card-block">
                                     <div class="card-title">

@@ -70,4 +70,51 @@ class Admin extends CI_Controller
 			redirect('/Admin');
 		}
 	}
+	public function editobat()
+	{
+
+		// Create variabel and use it for add data from database.
+		// Load edit_jurusan($id_obat,$data) from M_web
+		// Redirect to index.php/web/jurusan after add data.
+		$config['upload_path']          = './assets';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 1000;
+		$this->upload->initialize($config);
+		$this->load->library('upload', $config);
+		$id_obat = $this->input->post('id_Obat', true);
+		if(!$this->upload->do_upload('uploadImage')){
+			$data = [
+				'Nama_Obat' => $this->input->post('Nama_Obat'),
+				'Harga' => $this->input->post('Harga'),
+				'Description' => $this->input->post('Description')
+			];
+			$result = $this->Obat->edit_Obat($id_obat, $data);
+			if($result) { 
+				//$this->session->set_flashdata('flash', 'Added success');				
+				redirect('/Admin');
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+					redirect('Catalog');
+			}
+		} else {
+			$data = [
+				'Nama_Obat' => $this->input->post('Nama_Obat'),
+				'Harga' => $this->input->post('Harga'),
+				'Description' => $this->input->post('Description'),
+				'pict' => $this->upload->data()['file_name']
+			];
+			$result = $this->Obat->edit_Obat($id_obat, $data);
+			if($result) { 
+				//$this->session->set_flashdata('flash', 'Added success');				
+				redirect('/Admin');
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+					redirect('Catalog');
+			}
+		}
+		
+
+
+	
+	}
 }

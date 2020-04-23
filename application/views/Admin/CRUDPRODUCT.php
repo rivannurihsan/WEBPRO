@@ -7,7 +7,7 @@ $this->load->view('Users/Template/header');
         <head>
             <title>TelyuPharmacy | AdminProduct</title>
             <style>
-                
+
                 .my-custom-scrollbar {
                     position: relative;
                     height: 550px;
@@ -224,8 +224,18 @@ $this->load->view('Users/Template/header');
                                 <td id="margin"><?php echo $d->Harga ?></td>
                                 <td id="margin"><?php echo nl2br($d->Description) ?></td>
                                 <td id="margin">
-                                    <button type="button" class="btn btn-warning">Update</button>
-                                    <a type="button" class="btn btn-danger"  href="<?php echo base_url(); ?>Admin/hapusobat/<?php echo $d->Obatid ?>" onClick="return confirm('Apakah Anda Yakin?')" >DELETE</a>
+                                    <button
+                                        type="button"
+                                        class="btn btn-warning"
+                                        data-toggle="modal"
+                                        data-target="#edit<?php echo $d->Obatid ?>">
+                                        UPDATE
+                                    </button>
+                                    <a
+                                        type="button"
+                                        class="btn btn-danger"
+                                        href="<?php echo base_url(); ?>Admin/hapusobat/<?php echo $d->Obatid ?>"
+                                        onclick="return confirm('Apakah Anda Yakin?')">DELETE</a>
                                 </td>
                                 <td>
                                     <div class="detail">
@@ -282,6 +292,51 @@ $this->load->view('Users/Template/header');
                         </div>
                     </div>
                 </div>
+
+                <!-- Update Product -->
+                <div class="container" id="NewProduct">
+                    <div class="row justify-content-center">
+                    <?php $no=1; foreach ($dataobat as $d ) {?>
+                        <div class="modal fade justify-content-center" id="edit<?php echo $d->Obatid ?>" role="dialog">
+                            <div class="modal-dialog bg-modal">
+                                <div class="modal-content">
+                                    <h5 id="tittle">Update Product</h5>
+                                    <form
+                                        class="row"
+                                        action="<?= base_url();?>Admin/editobat/"
+                                        method="POST"
+                                        enctype="multipart/form-data">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-4">
+                                            <img
+                                                id="addImage"
+                                                src="<?= base_url('assets/obat1.png') ?>"
+                                                class="roundedcircle d-block"/>
+                                        </div>
+                                        <div class="col-md-7" id="inputan">
+                                            <div class="topic-title">Product Name</div>
+                                            <input type="hidden" name="id_Obat" class="form-control" placeholder="Nama" name="Obatid" value="<?php echo $d->Obatid ?>"  required>
+                                            <input type="text" name="Nama_Obat" class="form-control" placeholder="Description" value="<?php echo $d->Nama_Obat?>">
+                                            <div class="topic-title">Price</div>
+                                            <input type="text" class="form-control" name="Harga" value="<?php echo $d->Harga ?>"><br>
+                                            <input type="file" name="uploadImage" class="form-control" value="<?=$d->Pict ?>"><?= $d->Pict ?></input>
+                                        </div>
+
+                                        <div class="topic-title desc">Description</div>
+                                        <textarea class="form-control" name="Description" id="" cols="30" rows="5" value="<?php echo nl2br($d->Description) ?>" placeholder="<?php echo nl2br($d->Description) ?>"><?php echo nl2br($d->Description) ?></textarea>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary" value="upload">Update</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+                                        </div>&nbsp
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+
             </div>
 
         </div>

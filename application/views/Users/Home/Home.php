@@ -72,7 +72,7 @@
                             
                             <button type="button" class="btn btn-primary klik">Yuk Lihat</button>
                         </p>
-                        
+                        <?php echo($error)?>
                     </div>
                 </div>
             </div>
