@@ -101,7 +101,10 @@ $this->load->view('Users/Template/header');
                     padding-top: 3%;
                     padding-bottom: 3%;
                 }
-
+                #image{
+                    width: 80px;
+                    height: 90px;
+                }
                 #addImage {
                     width: 160px;
                     height: 190px;
@@ -202,12 +205,13 @@ $this->load->view('Users/Template/header');
                             </tr>
                         </!-->
                         <tbody>
+                            <?php $no=1; foreach ($dataobat as $d ) {?>
                             <tr>
                                 <td>
-                                    <img id="image" src="<?= base_url("assets/obat1.png") ?>" alt="">
+                                    <img id="image" src="<?= base_url("assets/") . $d->Pict ?>" alt="">
                                 </td>
-                                <td id="margin">obat</td>
-                                <td id="margin">Rp 15,000</td>
+                                <td id="margin"><?php echo $d->Nama_Obat?></td>
+                                <td id="margin"><?php echo $d->Harga ?></td>
                                 <td id="margin">
                                     <button type="button" class="btn btn-warning">Update</button>
                                     <button type="button" class="btn btn-danger">Delete</button>
@@ -222,66 +226,7 @@ $this->load->view('Users/Template/header');
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="<?= base_url("assets/obat1.png") ?>" alt="">
-                                </td>
-                                <td id="margin">obat</td>
-                                <td id="margin">Rp 15,000</td>
-                                <td id="margin">
-                                    <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                                <td>
-                                    <div class="detail">
-                                        <a href=""><img
-                                            class="roundedcircle d-block"
-                                            id="detail"
-                                            src="<?= base_url("assets/details.svg") ?>"
-                                            alt=""></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="<?= base_url("assets/obat1.png") ?>" alt="">
-                                </td>
-                                <td id="margin">obat</td>
-                                <td id="margin">Rp 15,000</td>
-                                <td id="margin">
-                                    <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                                <td>
-                                    <div class="detail">
-                                        <a href=""><img
-                                            class="roundedcircle d-block"
-                                            id="detail"
-                                            src="<?= base_url("assets/details.svg") ?>"
-                                            alt=""></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="<?= base_url("assets/obat1.png") ?>" alt="">
-                                </td>
-                                <td id="margin">obat</td>
-                                <td id="margin">Rp 15,000</td>
-                                <td id="margin">
-                                    <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                                <td>
-                                    <div class="detail">
-                                        <a href=""><img
-                                            class="roundedcircle d-block"
-                                            id="detail"
-                                            src="<?= base_url("assets/details.svg") ?>"
-                                            alt=""></a>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

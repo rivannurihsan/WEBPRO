@@ -26,23 +26,23 @@ class Admin extends CI_Controller
 	}
 	public function index()
 	{
-		// $this->load->view('welcome_message');
-		// $this->load->view('Users/Template/header');
-		$this->load->view('Admin/CRUDPRODUCT');
+		$data_obat = $this->Obat->GetObat();
+		$this->load->view('Admin/CRUDPRODUCT',['dataobat'=>$data_obat]);
+		//$this->load->view('page_mahasiswa',['data'=>$data_mahasiswa]);
+		
 	}
 	public function Create_Obat()
 	{
 		
 		$config['upload_path']          = './assets';
-		$config['allowed_types']        = 'gif|jpg|png';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
 		$config['max_size']             = 1000;
 		$this->upload->initialize($config);
 		$this->load->library('upload', $config);
-		$this->upload->do_upload('uploadImage');
 		
 		if(!$this->upload->do_upload('uploadImage')){
 			$error = array('error' => $this->upload->display_errors());
-			$this->load->view('Users/Home/Home',$error);
+			//$this->load->view('Users/Home/Home',$error);
 		} else {
 			$data = [
 				'Nama_Obat' => $this->input->post('Nama_Obat'),
@@ -55,7 +55,7 @@ class Admin extends CI_Controller
 				$error = array('error' => $this->upload->display_errors());
 				redirect('Catalog');
 			} else {
-				redirect('/');
+				redirect('/Admin');
 			}
 		}
 	}

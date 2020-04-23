@@ -76,7 +76,6 @@
                     </div>
                 </div>
             </div>
-            <p> <?php echo $error;?> </p>
         </div>
 
     </body>
