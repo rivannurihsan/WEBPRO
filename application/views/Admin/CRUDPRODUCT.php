@@ -5,7 +5,7 @@ $this->load->view('Users/Template/header');
     <html>
 
         <head>
-            <title>TelyuPharmacy | AdminProduct</title>
+            <title>Product</title>
             <style>
 
                 .my-custom-scrollbar {
@@ -211,7 +211,6 @@ $this->load->view('Users/Template/header');
                                 <th scope="col">Price</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Action</th>
-                                <th scope="col">Details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -236,15 +235,6 @@ $this->load->view('Users/Template/header');
                                         class="btn btn-danger"
                                         href="<?php echo base_url(); ?>Admin/hapusobat/<?php echo $d->Obatid ?>"
                                         onclick="return confirm('Apakah Anda Yakin?')">DELETE</a>
-                                </td>
-                                <td>
-                                    <div class="detail">
-                                        <a href=""><img
-                                            class="roundedcircle d-block"
-                                            id="detail"
-                                            src="<?= base_url("assets/details.svg") ?>"
-                                            alt=""></a>
-                                    </div>
                                 </td>
                             </tr>
                             <?php } ?>
