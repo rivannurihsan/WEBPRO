@@ -195,8 +195,8 @@ $this->load->view('Users/Template/header');
                         </div>
                     </form>
                     <table class="table">
-                        <thead>
-                            <tr>
+                        <thead >
+                            <tr position='fixed'>
                                 <th scope="col">Photo</th>
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Price</th>
@@ -212,6 +212,7 @@ $this->load->view('Users/Template/header');
                                 </td>
                                 <td id="margin"><?php echo $d->Nama_Obat?></td>
                                 <td id="margin"><?php echo $d->Harga ?></td>
+                                <td id="margin"><?php echo nl2br($d->Description) ?></td>
                                 <td id="margin">
                                     <button type="button" class="btn btn-warning">Update</button>
                                     <button type="button" class="btn btn-danger">Delete</button>
@@ -262,7 +263,8 @@ $this->load->view('Users/Template/header');
                                                 class="btn btn-primary"
                                                 value="upload">Add New Product</button>
                                             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
-                                        </div>
+                                        </div>&nbsp
+                                        
                                     </form>
                                 </div>
                             </div>
