@@ -141,6 +141,7 @@
                 border-style: solid;
                 margin-bottom: 5%;
                 margin-top: 0%;
+                margin-left: 3%;
             }
         </style>
     </head>
