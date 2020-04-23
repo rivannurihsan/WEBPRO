@@ -152,4 +152,15 @@ class Admin extends CI_Controller
 			redirect('/Admin/Usersview');
 		}
 	}
+	public function edit_users(){
+		$Personid = $this->input->post('Personid', true);
+		$timestamp = strtotime($this->input->post('TTL'));
+		$ttl = date("y-m-d", $timestamp);
+		$data = ['email' => $this->input->post('email'), 'username' => $this->input->post('username'), 'password' => $this->input->post('password'), 'TTL' => $ttl, 'alamat' => $this->input->post('alamat'), 'gender' => $this->input->post('Gender'), 'status' => 0];
+		if ($this->Users->edit_Users($Personid, $data)) {
+			redirect('/Admin/Usersview');
+		} else {
+			redirect('/');
+		}
+	}
 }

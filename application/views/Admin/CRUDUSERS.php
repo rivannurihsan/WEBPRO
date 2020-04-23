@@ -307,7 +307,7 @@ $this->load->view('Users/Template/header');
                                     <h5 id="tittle">Update Product</h5>
                                     <form
                                         class="row"
-                                        action="<?= base_url();?>Admin/RegistrasiAdmin/"
+                                        action="<?= base_url();?>Admin/edit_users/"
                                         method="POST"
                                         enctype="multipart/form-data">
                                         <div class="col-md-1"></div>
@@ -315,6 +315,7 @@ $this->load->view('Users/Template/header');
                                         <div class="col-md-7" id="inputan">
                                             <div class="topic-title">Email</div>
                                             <input type="text" name="email" class="form-control" value="<?php echo $d->email ?>" required="required">
+                                            <input type="hidden" name="Personid" class="form-control" value="<?php echo $d->Personid ?>">
                                             <div class="topic-title">Username</div>
                                             <input type="text" class="form-control" name="username" value="<?php echo $d->username ?>" required="required"><br>
                                             <div class="topic-title">Password</div>
@@ -326,7 +327,7 @@ $this->load->view('Users/Template/header');
                                             <div class="topic-title">Gender</div>
                                             <select class="form-control" name="Gender" value="<?php echo $d->email ?>">
                                                 <option value="volvo" >Gender</option>
-                                                <option value="<?php echo '1'; ?>" selected><?php echo $d->gender ?></option>
+                                                <option value="<?php echo $d->gender; ?>" selected><?php echo $d->gender ?></option>
                                                 <option value="Pria">Pria</option>
                                                 <option value="Wanita">Wanita</option>
                                             </select>

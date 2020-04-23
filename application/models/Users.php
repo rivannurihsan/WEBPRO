@@ -15,11 +15,11 @@ class Users extends CI_Model
 	}
 
 
-	public function edit_Obat($idobat, $data)
+	public function edit_Users($Personid, $data)
 	{
 		$this->db->set($data);
-		$this->db->where('Obatid', $idobat);
-		return $this->db->update('Product');
+		$this->db->where('Personid', $Personid);
+		return $this->db->update('Profile');
 	}
 }
 ?>
