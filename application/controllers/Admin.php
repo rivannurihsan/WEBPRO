@@ -59,4 +59,15 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+	public function hapusobat($idobat)
+	{
+
+		//Load function hapus_mahasiswa from M_web
+		// make it to index.php/web/mahasiswa after delete complete
+		if(!isset($idobat)) show_404();
+		var_dump($idobat);
+		if($this->Obat->hapus_obat($idobat)) {
+			redirect('/Admin');
+		}
+	}
 }

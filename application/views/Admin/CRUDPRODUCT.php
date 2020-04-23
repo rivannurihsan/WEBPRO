@@ -7,13 +7,23 @@ $this->load->view('Users/Template/header');
         <head>
             <title>TelyuPharmacy | AdminProduct</title>
             <style>
+                
+                .my-custom-scrollbar {
+                    position: relative;
+                    height: 550px;
+                    overflow: scroll;
+                }
+                .table-wrapper-scroll-y {
+                    display: block;
+                    width: 100%;
+                }
                 #section1 {
                     margin-top: 8%;
+                    margin-bottom: 5%;
                     background: #FFFFFF;
                     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
                     border-radius: 5px;
                     padding: 2em;
-                    position: relative;
                     width: 90%;
                 }
 
@@ -61,7 +71,6 @@ $this->load->view('Users/Template/header');
                 }
 
                 td {
-                    font-family: Nunito Sans;
                     font-style: normal;
                     font-weight: normal;
                     font-size: 12px;
@@ -69,7 +78,7 @@ $this->load->view('Users/Template/header');
                 }
 
                 #margin {
-                    transform: translate(0%, 20%);
+                    transform: translate(0%, 10%);
                 }
 
                 .detail {
@@ -101,7 +110,7 @@ $this->load->view('Users/Template/header');
                     padding-top: 3%;
                     padding-bottom: 3%;
                 }
-                #image{
+                #image {
                     width: 80px;
                     height: 90px;
                 }
@@ -194,16 +203,17 @@ $this->load->view('Users/Template/header');
                                 data-target="#addProduct">Add New Product</a>
                         </div>
                     </form>
-                    <table class="table">
-                        <thead >
-                            <tr position='fixed'>
+                    <table class="table table-wrapper-scroll-y my-custom-scrollbar">
+                        <thead>
+                            <tr>
                                 <th scope="col">Photo</th>
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">Description</th>
                                 <th scope="col">Action</th>
                                 <th scope="col">Details</th>
                             </tr>
-                        </!-->
+                        </thead>
                         <tbody>
                             <?php $no=1; foreach ($dataobat as $d ) {?>
                             <tr>
@@ -215,7 +225,7 @@ $this->load->view('Users/Template/header');
                                 <td id="margin"><?php echo nl2br($d->Description) ?></td>
                                 <td id="margin">
                                     <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <a type="button" class="btn btn-danger"  href="<?php echo base_url(); ?>Admin/hapusobat/<?php echo $d->Obatid ?>" onClick="return confirm('Apakah Anda Yakin?')" >DELETE</a>
                                 </td>
                                 <td>
                                     <div class="detail">
@@ -239,7 +249,11 @@ $this->load->view('Users/Template/header');
                             <div class="modal-dialog bg-modal">
                                 <div class="modal-content">
                                     <h5 id="tittle">Add New Product</h5>
-                                    <form class="row" action="<?= base_url();?>Admin/Create_Obat/" method="POST" enctype="multipart/form-data">
+                                    <form
+                                        class="row"
+                                        action="<?= base_url();?>Admin/Create_Obat/"
+                                        method="POST"
+                                        enctype="multipart/form-data">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-4">
                                             <img
@@ -252,19 +266,16 @@ $this->load->view('Users/Template/header');
                                             <input type="text" name="Nama_Obat" class="form-control">
                                             <div class="topic-title">Price</div>
                                             <input type="text" class="form-control" name="Harga"><br>
-                                            <input type="file" name="uploadImage" class="form-control" />
+                                            <input type="file" name="uploadImage" class="form-control"/>
                                         </div>
 
                                         <div class="topic-title desc">Description</div>
-                                        <textarea class="form-control" name="Description" id="" cols="30" rows="5" ></textarea>
+                                        <textarea class="form-control" name="Description" id="" cols="30" rows="5"></textarea>
                                         <div class="text-center">
-                                            <button
-                                                type="submit"
-                                                class="btn btn-primary"
-                                                value="upload">Add New Product</button>
+                                            <button type="submit" class="btn btn-primary" value="upload">Add New Product</button>
                                             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
                                         </div>&nbsp
-                                        
+
                                     </form>
                                 </div>
                             </div>
