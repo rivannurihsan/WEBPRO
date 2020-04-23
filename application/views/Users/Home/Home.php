@@ -64,16 +64,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <p>Mencari Obat Dengan<br>
+                        <p>Mencari Obat Dengan <br>
                             Mudah,Terpercaya dan Sudah<br>
                             Terjamin Resep Dari Dokter.<br>
                             Layanan Online ObatKu<br>
                             Terbaik Di Indonesia<br>
+                            
                             <button type="button" class="btn btn-primary klik">Yuk Lihat</button>
                         </p>
+                        
                     </div>
                 </div>
             </div>
+            <p> <?php echo $error;?> </p>
         </div>
 
     </body>

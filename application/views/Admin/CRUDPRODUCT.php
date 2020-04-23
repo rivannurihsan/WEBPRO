@@ -1,5 +1,5 @@
-<?php 
-    $this->load->view('Users/Template/header');
+<?php
+$this->load->view('Users/Template/header');
 ?>
 <html>
     <html>
@@ -24,12 +24,12 @@
                     font-size: 18px;
                     line-height: 25px;
                 }
+
                 .roundedcircle {
                     width: 45px;
                     height: 45px;
                     cursor: pointer;
                 }
-                
 
                 #search {
                     border: none;
@@ -45,8 +45,6 @@
                     border: none;
                     color: black;
                 }
-
-                
 
                 #section1 .btn-primary {
                     margin-left: 55%;
@@ -74,7 +72,6 @@
                     transform: translate(0%, 20%);
                 }
 
-                
                 .detail {
                     width: 40px;
                     height: 40px;
@@ -106,8 +103,8 @@
                 }
 
                 #addImage {
-                    width: 151px;
-                    height: 151px;
+                    width: 160px;
+                    height: 190px;
                     margin-left: 10%;
                     margin-top: 3%;
                 }
@@ -206,7 +203,7 @@
                         </!-->
                         <tbody>
                             <tr>
-                                <td >
+                                <td>
                                     <img id="image" src="<?= base_url("assets/obat1.png") ?>" alt="">
                                 </td>
                                 <td id="margin">obat</td>
@@ -296,28 +293,32 @@
                             <div class="modal-dialog bg-modal">
                                 <div class="modal-content">
                                     <h5 id="tittle">Add New Product</h5>
-                                    <form action="" class="row">
+                                    <form class="row" action="<?= base_url();?>Admin/Create_Obat/" method="POST" enctype="multipart/form-data">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-4">
                                             <img
                                                 id="addImage"
-                                                src="<?= base_url('assets/image/obat.jpg') ?>"
+                                                src="<?= base_url('assets/obat1.png') ?>"
                                                 class="roundedcircle d-block"/>
                                         </div>
                                         <div class="col-md-7" id="inputan">
                                             <div class="topic-title">Product Name</div>
-                                            <input type="text" class="form-control">
-                                            <div class="topic-title">Product Name</div>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="Nama_Obat" class="form-control">
+                                            <div class="topic-title">Price</div>
+                                            <input type="text" class="form-control" name="Harga"><br>
+                                            <input type="file" name="uploadImage" class="form-control" />
                                         </div>
 
+                                        <div class="topic-title desc">Description</div>
+                                        <textarea class="form-control" name="Description" id="" cols="30" rows="5" ></textarea>
+                                        <div class="text-center">
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary"
+                                                value="upload">Add New Product</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+                                        </div>
                                     </form>
-                                    <div class="topic-title desc">Description</div>
-                                    <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
-                                    <div class="text-center">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Add New Product</button>
-                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -327,7 +328,6 @@
 
         </div>
 
-        
     </body>
 
 </html>
