@@ -14,7 +14,7 @@ class Obat extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function hapus_users($idobat)
+	public function hapus_obat($idobat)
 	{
 		return $this->db->delete("Product", array("Obatid" => $idobat));
 	}

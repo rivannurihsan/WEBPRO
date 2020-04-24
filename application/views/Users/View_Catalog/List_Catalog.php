@@ -99,7 +99,6 @@
                 border-bottom: 1px solid #C4C4C4;
 
             }
-
             #Tittle {
                 font-family: Nunito Sans;
                 font-style: normal;
@@ -114,7 +113,15 @@
                 border-radius: 10px;
                 height: 230px;
             }
-
+            .disp.card {
+                overflow: scroll;
+            }
+            .dispcart.card {
+                border-radius: 10px;
+                height: auto;
+                width: 450px;
+                margin-top: 2%;
+            }
             #col-section-3 {
                 margin-bottom: 5%;
             }
@@ -140,10 +147,11 @@
                 border: #000000;
                 border-style: solid;
                 margin-bottom: 5%;
-                margin-top: 0%;
-                margin-left: 3%;
+                margin-top: 0;
+                margin-left: 10%;
             }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="container-fluid" id="section1"></div>
@@ -183,9 +191,9 @@
             </div>
 
             <div class="row">
-                <div class="col-md-2 col-4" id="form">
+                <div class="col-md-2 col-4" id="form1">
                     <h1 id="tittle-section2">Search for more details</h1>
-                    <div class="card">
+                    <div class="card dispcart">
                         <h6>Price Range</h6>
                         <form action="">
                             <input
@@ -201,7 +209,7 @@
                             <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
                         </form>
                     </div>
-                    <div class="card" id="PriceRange">
+                    <div class="card dispcart" id="PriceRange">
                         <h6>Categoies</h6>
                         <form action="" id="kategori">
                             <input
@@ -224,43 +232,56 @@
                             <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
                         </form>
                     </div>
-                    <div class="card">
-                        <h6>Your Cart</h6>
-                        <form action="">
-                            <input
-                                id="inlineFormInputGroup"
-                                type="text"
-                                class="form-control"
-                                placeholder="Minimum price">
-                            <input
-                                id="inlineFormInputGroup"
-                                type="text"
-                                class="form-control"
-                                placeholder="Maximum price">
-                            <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
-                        </form>
+                    <div class="card dispcart">
+                        <h4>Shopping Cart</h4>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Produk</th>
+                                    <th>Harga</th>
+                                    <th>Qty</th>
+                                    <th>Subtotal</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detail_cart"></tbody>
+
+                        </table>
                     </div>
                 </div>
                 <div class="container display">
                     <div class="row">
                         <?php foreach ($dataobat as $d ) {?>
                         <div class="col-md-2">
-                            <div class="card">
-                                <img
-                                    src="<?= base_url("assets/") . $d->Pict ?>"
-                                    alt=""
-                                    class="mx-auto d-block"
-                                    height="100px"
-                                    width="90px">
-                                <div class="card-block">
-                                    <div class="card-title">
-                                        <h5>
-                                            <a id="label-section-3" href="<?= base_url('') ?>"><?php echo($d->Nama_Obat) ?></a>
-                                        </h5>
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="harga">Rp.<?php echo $d->Harga ?></div>
-                                        <div class="rating"><?php echo nl2br($d->Description) ?></div>
+                            <div class="card disp">
+                                <div class="thumbnail">
+                                    <img
+                                        src="<?= base_url("assets/") . $d->Pict ?>"
+                                        alt=""
+                                        class="mx-auto d-block"
+                                        height="100px"
+                                        width="90px">
+                                    <div class="card-block">
+                                        <div class="card-title">
+                                            <h5>
+                                                <a id="label-section-3" href="<?= base_url('') ?>"><?php echo($d->Nama_Obat) ?></a>
+                                            </h5>
+                                        </div>
+                                        <div class="card-text">
+                                            <div class="harga"><?php echo 'Rp '.number_format($d->Harga); ?></div>
+                                            <div class="Desc"><?php echo nl2br($d->Description) ?></div>
+                                            <input
+                                                type="number"
+                                                name="quantity"
+                                                id="<?php echo $d->Obatid;?>"
+                                                value="1"
+                                                class="quantity form-control">
+                                            <button
+                                                class="add_cart btn btn-success btn-block"
+                                                data-produkid="<?php echo $d->Obatid;?>"
+                                                data-produknama="<?php echo $d->Nama_Obat;?>"
+                                                data-produkharga="<?php echo $d->Harga;?>">Add To Cart</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -273,28 +294,52 @@
 
             </div>
         </div>
-        <script>
+        <script
+            type="text/javascript"
+            src="<?php echo base_url().'assets/js/jquery-2.2.3.min.js'?>"></script>
+        <script
+            type="text/javascript"
+            src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
+        <script type="text/javascript">
             $(document).ready(function () {
-                // Activate Carousel
-                $("#myCarousel").carousel();
+                // AJAX
 
-                // Enable Carousel Indicators
-                $(".item1").click(function () {
-                    $("#myCarousel").carousel(0);
-                });
-                $(".item2").click(function () {
-                    $("#myCarousel").carousel(1);
-                });
-                $(".item3").click(function () {
-                    $("#myCarousel").carousel(2);
+                $('.add_cart').click(function () {
+                    var produk_id = $(this).data("produkid");
+                    var produk_nama = $(this).data("produknama");
+                    var produk_harga = $(this).data("produkharga");
+                    var quantity = $('#' + produk_id).val();
+                    $.ajax({
+                        url: "<?php echo base_url();?>Catalog/add_to_cart",
+                        method: "POST",
+                        data: {
+                            produk_id: produk_id,
+                            produk_nama: produk_nama,
+                            produk_harga: produk_harga,
+                            quantity: quantity
+                        },
+                        success: function (data) {
+                            $('#detail_cart').html(data);
+                        }
+                    });
                 });
 
-                // Enable Carousel Controls
-                $(".carousel-control-prev").click(function () {
-                    $("#myCarousel").carousel("prev");
-                });
-                $(".carousel-control-next").click(function () {
-                    $("#myCarousel").carousel("next");
+                // Load shopping cart
+                $('#detail_cart').load("<?php echo base_url();?>index.php/cart/load_cart");
+
+                //Hapus Item Cart
+                $(document).on('click', '.hapus_cart', function () {
+                    var row_id = $(this).attr("id"); //mengambil row_id dari artibut id
+                    $.ajax({
+                        url: "<?php echo base_url();?>Catalog/hapus_cart",
+                        method: "POST",
+                        data: {
+                            row_id: row_id
+                        },
+                        success: function (data) {
+                            $('#detail_cart').html(data);
+                        }
+                    });
                 });
             });
         </script>
