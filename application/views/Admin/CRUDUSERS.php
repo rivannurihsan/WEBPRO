@@ -1,6 +1,4 @@
-<?php
-$this->load->view('Users/Template/header');
-?>
+
 <html>
     <html>
 

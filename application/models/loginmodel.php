@@ -19,5 +19,13 @@ class loginmodel extends CI_Model{
 		//select 1 row profile based on username (from param) and return it, if the data is not found then return false
 		return $this->check_username($username) ? $this->db->get_where('profile', ['username' => $username])->row_array() : false;
 	}
+	public function GetUserId($username)
+	{
+		$this->db->select('status');
+        $this->db->from('Profile');
+        $this->db->where('username',$username);
+		$query = $this->db->get();
+		return $query->row();
+	}
 }
 ?>

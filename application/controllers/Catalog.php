@@ -28,6 +28,7 @@ class Catalog extends CI_Controller
 		// $this->load->view('welcome_message');
 		// $this->load->view('Users/Template/header');
 		$data_obat = $this->Obat->GetObat();
+		$this->load->view('Users/Template/header');
 		$this->load->view('Users/View_Catalog/List_Catalog',['dataobat'=>$data_obat]);
 	}
 	

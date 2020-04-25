@@ -1,6 +1,3 @@
-<?php 
-    $this->load->view('Users/Template/header');
-?>
 <html>
     <head>
         <link
@@ -36,7 +33,8 @@
                 position: relative;
                 width: 100%;
                 height: 100%;
-                background: url("assets/homebg.jpg");
+                background: url("<?php echo base_url();?>assets/homebg.jpg");
+                /* url("assets/homebg.jpg"); */
                 background-size: 100% 100%;
                 bottom: 0;
                 margin-bottom: 0;

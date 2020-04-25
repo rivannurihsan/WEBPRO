@@ -30,6 +30,7 @@ class Admin extends CI_Controller
 	public function index()
 	{
 		$data_obat = $this->Obat->GetObat();
+		$this->load->view('Users/Template/HeaderAdmin');
 		$this->load->view('Admin/CRUDPRODUCT', ['dataobat' => $data_obat]);
 		//$this->load->view('page_mahasiswa',['data'=>$data_mahasiswa]);
 
@@ -119,6 +120,7 @@ class Admin extends CI_Controller
 	public function Usersview()
 	{
 		$data_User = $this->Users->GetUsers();
+		$this->load->view('Users/Template/HeaderAdmin');
 		$this->load->view('Admin/CRUDUSERS', ['data' => $data_User]);
 
 	}
@@ -168,6 +170,7 @@ class Admin extends CI_Controller
 
 	public function ArtikelAdmin(){
 		$data_artikel= $this->Artikel->GetArtikel();
+		$this->load->view('Users/Template/HeaderAdmin');
 		$this->load->view('Admin/CRUDARTIKEL',['data' => $data_artikel]);
 	}
 	public function Create_Artikel()

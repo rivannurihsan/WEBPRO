@@ -27,18 +27,40 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		// $this->load->view('welcome_message');
+		if ($_SESSION['status'] == 0) {
+			$this->load->view('Users/Template/header');
+			$this->load->view('Users/Home/Home');
+		}else if ($_SESSION['status'] == 1){
+			$this->load->view('Users/Template/HeaderAdmin');
+			$this->load->view('Users/Home/Home');
+		}else{
+			$this->load->view('Users/Template/header');
+			$this->load->view('Users/Home/Home');
+		}
 		// $this->load->view('Users/Template/header');
-		$this->load->view('Users/Home/Home');
+		// $this->load->view('Users/Home/Home');
 	}
 	public function Login()
 	{
+		
 		// $this->load->view('Users/Login/Login');
+		$_SESSION['username'] = 'null';
 		$message = "Invalid username or password";
 		if ($this->input->method() == 'post') {
 			$data = ['username' => $this->input->post('uname'), 'password' => $this->input->post('psw')];
 			if ($this->loginmodel->loginuser($data)) {
+				$userid = $this->loginmodel->GetUserId($data['username']);
+				$_SESSION['username'] = $data['username'];
+				$_SESSION['status'] = $userid->status;
 				$this->session->set_userdata('username', $data['username']);
-				redirect('/');
+				//redirect('/');
+				if ($_SESSION['status'] != 1) {
+					$this->load->view('Users/Template/header');
+					$this->load->view('Users/Home/Home');
+				}else{
+					$this->load->view('Users/Template/HeaderAdmin');
+					$this->load->view('Users/Home/Home');
+				}
 			} else {
 				$this->load->view('Users/Template/header');
 

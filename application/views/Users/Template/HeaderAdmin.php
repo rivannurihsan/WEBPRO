@@ -190,34 +190,30 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url(); ?>Catalog">Katalog
-                        <span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="<?= base_url(); ?>Admin/">Product</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link"  href="<?= base_url(); ?>welcome/Contactus">Contact Us</a>
+                    <a class="nav-link" href="<?= base_url(); ?>Admin/Usersview">Users</a>
                 </li>
-               
+                <li class="nav-item ">
+                    <a class="nav-link" href="<?= base_url(); ?>Admin/ArtikelAdmin">Artikel</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Info Kesehatan
                     </a>
-
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="<?= base_url(); ?>Artikelcontroller/viewArtikel1">Lihat Artikel</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>welcome/Contactus">Artikel Kesehatan</a>
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
             <ul class="navbar-nav  mt-2 mt-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url(); ?>welcome/Login/">
                         <i class='fas fa-user' style='font-size:20px'>
                             <?php if ($_SESSION['username'] != 'null') {?>
-                                Hai,<?php echo $_SESSION['username']; ?>
+                                Hai Admin,<?php echo $_SESSION['username']; ?>
                             <?php }else{?>
                                 Login
                             <?php }?>
