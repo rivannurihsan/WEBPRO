@@ -198,4 +198,45 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+	public function editartikel()
+	{
+
+		// Create variabel and use it for add data from database.
+		// Load edit_jurusan($id_obat,$data) from M_web
+		// Redirect to index.php/web/jurusan after add data.
+		$config['upload_path']          = './assets';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 1000;
+		$this->upload->initialize($config);
+		$this->load->library('upload', $config);
+		$id = $this->input->post('id', true);
+		if (!$this->upload->do_upload('uploadImage')) {
+			$data = [
+				'Judul' => $this->input->post('Judul'),
+				'Isi' => $this->input->post('Isi')
+			];
+			$result = $this->Artikel->edit_Artikel($id, $data);
+			if ($result) {
+				//$this->session->set_flashdata('flash', 'Added success');				
+				redirect('/Admin/ArtikelAdmin');
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+				redirect('Catalog');
+			}
+		} else {
+			$data = [
+				'Judul' => $this->input->post('Judul'),
+				'Isi' => $this->input->post('Isi'),
+				'Gambar' => $this->upload->data()['file_name']
+			];
+			$result = $this->Artikel->edit_Artikel($id, $data);
+			if ($result) {
+				//$this->session->set_flashdata('flash', 'Added success');				
+				redirect('/Admin/ArtikelAdmin');
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+				redirect('Catalog');
+			}
+		}
+	}
 }

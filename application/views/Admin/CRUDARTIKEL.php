@@ -282,34 +282,33 @@ $this->load->view('Users/Template/header');
                 <!-- Update Product -->
                 <div class="container" id="NewProduct">
                     <div class="row justify-content-center">
-                    <?php $no=1; foreach ($dataobat as $d ) {?>
+                    <?php $no=1; foreach ($data as $d ) {?>
                         <div class="modal fade justify-content-center" id="edit<?php echo $d->id ?>" role="dialog">
                             <div class="modal-dialog bg-modal">
                                 <div class="modal-content">
                                     <h5 id="tittle">Update Product</h5>
                                     <form
                                         class="row"
-                                        action="<?= base_url();?>Admin/editobat/"
+                                        action="<?= base_url();?>Admin/editartikel/"
                                         method="POST"
                                         enctype="multipart/form-data">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-4">
                                             <img
                                                 id="addImage"
-                                                src="<?= base_url('assets/obat1.png') ?>"
+                                                src="<?= base_url('assets/logo.png') ?>"
                                                 class="roundedcircle d-block"/>
                                         </div>
                                         <div class="col-md-7" id="inputan">
                                             <div class="topic-title">Product Name</div>
-                                            <input type="hidden" name="id_Obat" class="form-control" placeholder="Nama" name="id" value="<?php echo $d->id ?>"  required>
-                                            <input type="text" name="Nama_Obat" class="form-control" placeholder="Description" value="<?php echo $d->Nama_Obat?>">
-                                            <div class="topic-title">Price</div>
-                                            <input type="text" class="form-control" name="Harga" value="<?php echo $d->Harga ?>"><br>
-                                            <input type="file" name="uploadImage" class="form-control" value="<?=$d->Pict ?>"><?= $d->Pict ?></input>
+                                            <input type="hidden" class="form-control" placeholder="Nama" name="id" value="<?php echo $d->id ?>"  required>
+                                            <input type="text" name="Judul" class="form-control" placeholder="Description" value="<?php echo $d->Judul?>">
+                                            
+                                            <input type="file" name="uploadImage" class="form-control" value="<?=$d->Gambar ?>"><?= $d->Gambar ?></input>
                                         </div>
 
                                         <div class="topic-title desc">Description</div>
-                                        <textarea class="form-control" name="Description" id="" cols="30" rows="5" value="<?php echo nl2br($d->Description) ?>" placeholder="<?php echo nl2br($d->Description) ?>"><?php echo nl2br($d->Description) ?></textarea>
+                                        <textarea class="form-control" name="Isi" id="" cols="30" rows="5" value="<?php echo nl2br($d->Isi) ?>" placeholder="<?php echo nl2br($d->Isi) ?>"><?php echo nl2br($d->Isi) ?></textarea>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary" value="upload">Update</button>
                                             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>

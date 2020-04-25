@@ -19,7 +19,8 @@ class Welcome extends CI_Controller
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->model("loginmodel");
 	}
@@ -29,45 +30,56 @@ class Welcome extends CI_Controller
 		// $this->load->view('Users/Template/header');
 		$this->load->view('Users/Home/Home');
 	}
-	public function Login(){
+	public function Login()
+	{
 		// $this->load->view('Users/Login/Login');
-		$message="Invalid username or password";
+		$message = "Invalid username or password";
 		if ($this->input->method() == 'post') {
 			$data = ['username' => $this->input->post('uname'), 'password' => $this->input->post('psw')];
 			if ($this->loginmodel->loginuser($data)) {
 				$this->session->set_userdata('username', $data['username']);
-                redirect('/');
-            } else {
+				redirect('/');
+			} else {
 				$this->load->view('Users/Template/header');
-		
-                $this->load->view('Users/Login/Login', ['error_msg' => 'Invalid username or password']);
-            }
-		}else{
+
+				$this->load->view('Users/Login/Login', ['error_msg' => 'Invalid username or password']);
+			}
+		} else {
 			$this->load->view('Users/Template/header');
 			$this->load->view('Users/Login/Login');
 		}
-		
 	}
 	public function Registrasi()
-	{	
+	{
 
 		$timestamp = strtotime($this->input->post('birthday'));
 
-// Creating new date format from that timestamp
+		// Creating new date format from that timestamp
 		$ttl = date("y-m-d", $timestamp);
 		if ($this->input->method() == 'post') {
 			$data = ['email' => $this->input->post('email'), 'username' => $this->input->post('username'), 'password' => $this->input->post('password'), 'TTL' => $ttl, 'alamat' => $this->input->post('alamat'), 'gender' => $this->input->post('Gender'), 'status' => 0];
 			if ($this->loginmodel->insert_new_profle($data)) {
 				$this->session->set_userdata('username', $data['username']);
-                redirect('/');
-            } else {
+				redirect('/');
+			} else {
 				$this->load->view('Users/Template/header');
-                $this->load->view('Users/Login/Login', ['error_msg' => 'Invalid username or password']);
-            }
-		}else{
+				$this->load->view('Users/Login/Login', ['error_msg' => 'Invalid username or password']);
+			}
+		} else {
 			$this->load->view('Users/Template/header');
 			$this->load->view('Users/Register/Register');
 		}
 	}
-	
+	public function Contactus()
+	{
+		$url = "./application/views/Users/Author/Auth.json";
+		$get_url = file_get_contents($url);
+		$data = json_decode($get_url);
+
+		$data_array = array(
+			'datalist' => $data
+		);
+		$this->load->view('Users/Author/ViewAuthor', $data_array);
+		//$this->load->view('Users/Author/ViewAuthor');
+	}
 }

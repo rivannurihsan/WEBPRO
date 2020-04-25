@@ -213,8 +213,9 @@
                             aria-expanded="false">
                             Info Kesehatan
                         </a>
+                        
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="<?= base_url();?>welcome/Contactus">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>

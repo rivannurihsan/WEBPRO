@@ -30,4 +30,10 @@ class Artikel extends CI_Model
 		$query = $this->db->get();
 		return $query->row();
 	}
+	public function edit_Artikel($id, $data)
+	{
+		$this->db->set($data);
+		$this->db->where('id', $id);
+		return $this->db->update('Artikel');
+	}
 }
