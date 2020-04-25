@@ -36,4 +36,8 @@ class Artikel extends CI_Model
 		$this->db->where('id', $id);
 		return $this->db->update('Artikel');
 	}
+	public function hapus_artikel($id)
+	{
+		return $this->db->delete("Artikel", array("id" => $id));
+	}
 }

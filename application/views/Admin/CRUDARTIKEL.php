@@ -231,7 +231,7 @@ $this->load->view('Users/Template/header');
                                     <a
                                         type="button"
                                         class="btn btn-danger"
-                                        href="<?php echo base_url(); ?>Admin/hapusobat/<?php echo $d->id ?>"
+                                        href="<?php echo base_url(); ?>Admin/hapusartikel/<?php echo $d->id ?>"
                                         onclick="return confirm('Apakah Anda Yakin?')">DELETE</a>
                                 </td>
                             </tr>

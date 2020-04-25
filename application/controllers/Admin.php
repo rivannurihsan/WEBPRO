@@ -239,4 +239,15 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+	public function hapusartikel($id)
+	{
+
+		//Load function hapus_mahasiswa from M_web
+		// make it to index.php/web/mahasiswa after delete complete
+		if (!isset($id)) show_404();
+		var_dump($id);
+		if ($this->Artikel->hapus_artikel($id)) {
+			redirect('/Admin/ArtikelAdmin');
+		}
+	}
 }
