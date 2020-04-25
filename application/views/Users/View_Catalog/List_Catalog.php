@@ -192,7 +192,7 @@
 
             <div class="row">
                 <div class="col-md-2 col-4" id="form1">
-                    <h1 id="tittle-section2">Search for more details</h1>
+                    <h1 id="tittle-section2">More</h1>
                     <div class="card dispcart">
                         <h6>Price Range</h6>
                         <form action="">
