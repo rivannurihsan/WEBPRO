@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <style>
@@ -157,14 +156,12 @@
             <div class="mt-3">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                    <!-- Indicators -->
                     <ul class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ul>
 
-                    <!-- The slideshow -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="<?= base_url('assets/covid-19.jpg') ?>" alt="Los Angeles">
@@ -177,7 +174,6 @@
                         </div>
                     </div>
 
-                    <!-- Left and right controls -->
                     <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </a>
@@ -191,45 +187,7 @@
             <div class="row">
                 <div class="col-md-2 col-4" id="form1">
                     <h1 id="tittle-section2">More</h1>
-                    <div class="card dispcart">
-                        <h6>Price Range</h6>
-                        <form action="">
-                            <input
-                                id="inlineFormInputGroup"
-                                type="text"
-                                class="form-control"
-                                placeholder="Minimum price">
-                            <input
-                                id="inlineFormInputGroup"
-                                type="text"
-                                class="form-control"
-                                placeholder="Maximum price">
-                            <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
-                        </form>
-                    </div>
-                    <div class="card dispcart" id="PriceRange">
-                        <h6>Categoies</h6>
-                        <form action="" id="kategori">
-                            <input
-                                id="kategori"
-                                type="checkbox"
-                                value="Promo"
-                                placeholder="asdasdasdasdasdsa">Promo</input><br>
-                            <input
-                                id="inlineFormInputGroup"
-                                type="checkbox"
-                                value="Obat"
-                                placeholder="asdasdasdasdasdsa">Obat
-                            </input><br>
-                            <input
-                                id="inlineFormInputGroup"
-                                type="checkbox"
-                                value="Vitamin"
-                                placeholder="asdasdasdasdasdsa">Vitamin
-                            </input>
-                            <button type="btn" class="btn btn-outline-info" id="submit">Submit</button>
-                        </form>
-                    </div>
+                    <!-- //ini diilangin dulu -->
                     <div class="card dispcart">
                         <h4>Shopping Cart</h4>
                         <table class="table table-striped">
@@ -322,12 +280,10 @@
                     });
                 });
 
-                // Load shopping cart
                 $('#detail_cart').load("<?php echo base_url();?>index.php/cart/load_cart");
 
-                //Hapus Item Cart
                 $(document).on('click', '.hapus_cart', function () {
-                    var row_id = $(this).attr("id"); //mengambil row_id dari artibut id
+                    var row_id = $(this).attr("id");
                     $.ajax({
                         url: "<?php echo base_url();?>Catalog/hapus_cart",
                         method: "POST",

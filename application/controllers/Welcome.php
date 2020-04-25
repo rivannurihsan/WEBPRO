@@ -27,13 +27,20 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		// $this->load->view('welcome_message');
-		if ($_SESSION['status'] == 0) {
-			$this->load->view('Users/Template/header');
-			$this->load->view('Users/Home/Home');
-		}else if ($_SESSION['status'] == 1){
-			$this->load->view('Users/Template/HeaderAdmin');
-			$this->load->view('Users/Home/Home');
+		if (!isset($_SESSION)) {
+			echo "aaaaaaaaaaaaaaaaa";
+			if ($_SESSION['status'] == 1){
+				$this->load->view('Users/Template/HeaderAdmin');
+				$this->load->view('Users/Home/Home');
+				
+			}else{
+				$this->load->view('Users/Template/header');
+				$this->load->view('Users/Home/Home');
+			}
+			echo "aaaaaaaaaaaaaaaaa";
 		}else{
+			$_SESSION['username'] = 'null';
+			echo "zzzzzzzzzzzzzzz";
 			$this->load->view('Users/Template/header');
 			$this->load->view('Users/Home/Home');
 		}
