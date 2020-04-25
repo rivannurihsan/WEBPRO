@@ -199,8 +199,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="<?= base_url();?>Admin/Usersview">Action</a>
-                            <a class="dropdown-item" href="<?= base_url();?>Artikel">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="<?= base_url();?>Artikelcontroller/viewArtikel1">Another action</a>
+                            <a class="dropdown-item" href="<?= base_url();?>Admin/ArtikelAdmin">Something else here</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

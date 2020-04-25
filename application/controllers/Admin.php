@@ -25,6 +25,7 @@ class Admin extends CI_Controller
 		$this->load->model("Obat");
 		$this->load->model("Users");
 		$this->load->model("loginmodel");
+		$this->load->model("Artikel");
 	}
 	public function index()
 	{
@@ -161,6 +162,40 @@ class Admin extends CI_Controller
 			redirect('/Admin/Usersview');
 		} else {
 			redirect('/');
+		}
+	}
+
+
+	public function ArtikelAdmin(){
+		$data_artikel= $this->Artikel->GetArtikel();
+		$this->load->view('Admin/CRUDARTIKEL',['data' => $data_artikel]);
+	}
+	public function Create_Artikel()
+	{
+
+		$config['upload_path']          = './assets/';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 1000;
+		$this->upload->initialize($config);
+		$this->load->library('upload', $config);
+		$tanggal = date("Y-m-d");
+		if (!$this->upload->do_upload('uploadImage')) {
+			$error = array('error' => $this->upload->display_errors());
+			echo $error;
+		} else {
+			$data = [
+				'Judul' => $this->input->post('Judul'),
+				'Isi' => $this->input->post('Isi'),
+				'tanggal' => $tanggal,
+				'Gambar' => $this->upload->data()['file_name']
+			];
+			$insert = $this->Artikel->insert_new_Artikel($data);
+			if (!$insert) {
+				$error = array('error' => $this->upload->display_errors());
+				redirect('Catalog');
+			} else {
+				redirect('/Admin/ArtikelAdmin');
+			}
 		}
 	}
 }
